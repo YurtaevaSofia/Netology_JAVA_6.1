@@ -7,7 +7,11 @@ class StatsServiceTest {
 
     @org.junit.jupiter.api.Test
     void totalSales() {
+
+        // Data
         int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        // Testing
         int total = 0;
         for (int i : salesData) total += i;
         int expected = 180;
@@ -16,8 +20,12 @@ class StatsServiceTest {
 
     @org.junit.jupiter.api.Test
     void averageTotalSales() {
+        // Data
+        int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        // Testing
         StatsService statService = new StatsService();
-        int averageTotal = statService.totalSales()/12;
+        int averageTotal = statService.totalSales(salesData)/12;
         int expected = 15;
 
         assertEquals(expected, averageTotal);
@@ -25,7 +33,10 @@ class StatsServiceTest {
 
     @org.junit.jupiter.api.Test
     void maximumSalesMonth() {
+        // Data
         int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        // Testing
         int month = 0;
         int salesMaximum = 0;
         for (int i = 0; i < 12; i++) {
@@ -40,7 +51,10 @@ class StatsServiceTest {
 
     @org.junit.jupiter.api.Test
     void minimumSalesMonth() {
+        // Data
         int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        // Testing
         int month = 0;
         int salesMinimum = 100;
         for (int i = 0; i < 12; i++) {
@@ -55,8 +69,11 @@ class StatsServiceTest {
 
     @org.junit.jupiter.api.Test
     void salesUnderAverage() {
+        // Data
         int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int averageSales = StatsService.averageTotalSales();
+
+        // Testing
+        int averageSales = StatsService.averageTotalSales(salesData);
         int n = 0;
         for (int i = 0; i < 12; i++) {
             if (salesData[i] < averageSales) {
@@ -69,8 +86,11 @@ class StatsServiceTest {
 
     @org.junit.jupiter.api.Test
     void salesOverAverage() {
+        // Data
         int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int averageSales = StatsService.averageTotalSales();
+
+        // Testing
+        int averageSales = StatsService.averageTotalSales(salesData);
         int n = 0;
         for (int i = 0; i < 12; i++) {
             if (salesData[i] > averageSales) {

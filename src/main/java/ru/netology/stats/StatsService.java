@@ -4,21 +4,18 @@ public class StatsService {
 
 
 
-    public int totalSales (){
-        int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    public int totalSales (int [] salesData){
         int total = 0;
         for (int i : salesData) total += i;
         return total;
     }
 
-    public static int averageTotalSales(){
+    public static int averageTotalSales(int [] salesData){
         StatsService statService = new StatsService();
-        int averageTotal = statService.totalSales()/12;
-        return averageTotal;
+        return statService.totalSales(salesData)/12;
     }
 
-    public int maximumSalesMonth (){
-        int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    public int maximumSalesMonth (int [] salesData){
         int month = 0;
         int salesMaximum = 0;
         for (int i = 0; i < 12; i++) {
@@ -30,8 +27,7 @@ public class StatsService {
         return month;
     }
 
-    public int minimumSalesMonth (){
-        int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+    public int minimumSalesMonth (int [] salesData){
         int month = 0;
         int salesMinimum = 100;
         for (int i = 0; i < 12; i++) {
@@ -43,9 +39,8 @@ public class StatsService {
         return month;
     }
 
-    public int salesUnderAverage (){
-        int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int averageSales = averageTotalSales();
+    public int salesUnderAverage (int [] salesData){
+        int averageSales = averageTotalSales(salesData);
         int n = 0;
         for (int i = 0; i < 12; i++) {
             if (salesData[i] < averageSales) {
@@ -55,9 +50,8 @@ public class StatsService {
         return n;
     }
 
-    public int salesOverAverage (){
-        int [] salesData = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
-        int averageSales = averageTotalSales();
+    public int salesOverAverage (int [] salesData){
+        int averageSales = averageTotalSales(salesData);
         int n = 0;
         for (int i = 0; i < 12; i++) {
             if (salesData[i] > averageSales) {
